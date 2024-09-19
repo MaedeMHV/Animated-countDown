@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    @apply flex h-screen w-screen items-center justify-center flex-col gap-3
+}
+.counter {
+    @apply flex flex-col items-center justify-center
+}
+.counter.hide{
+    transform: scale(0);
+ animation: hide 0.2s ease-out 
+
+}
+@keyframes hide{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0);
+    }
+}
+.final{
+    @apply flex flex-col items-center justify-center;
+    transform: scale(0);
+}
+.final.show{
+    transform: scale(1);
+    animation: show 0.5s ease-out 
+   
+   }
+   @keyframes show{
+       0%{
+           transform: scale(0);
+       }30%{
+        transform: scale(1.2);
+       }
+       60%{
+        transform: scale(1.6);
+       }80%{
+        transform: scale(1.2);
+       }
+
+       100%{
+           transform: scale(1);
+       }
+   }
+   .final h2{
+    @apply text-stone-700 text-3xl font-extrabold
+   }
+   .num{
+    @apply text-4xl font-extrabold relative w-[250px] h-[50px] overflow-hidden
+   }
+   .replay{
+    @apply mt-4 
+   }
+   .num span{
+    @apply absolute top-1/2 left-1/2;
+    transform: translate(-50%, -50%);
+    transform:  rotate(180deg);
+    transform-origin: bottom center;
+   }
+   .num span.in{
+    
+    transform: translate(-50%, -50%) rotate(0deg);
+   
+    transform-origin: bottom center;
+    animation: goIn 0.6s ease-out
+   }
+   .num span.out{
+  
+    transform: translate(-50%, -50%) rotate(-180deg); 
+    transform-origin: bottom center;
+    animation: goOut 0.6s ease-out
+   }
+
+   @keyframes goIn{
+    0%{
+        transform: translate(-50%, -50%) rotate(150deg);
+    }30%{
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }60%{
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+    100%{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+@keyframes goOut{
+    0%{
+        transform: translate(-50%, -50%) rotate(0deg);}
+    60%{
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+    100%{
+        transform: translate(-50%, -50%) rotate(-180deg);
+    }
+}
+.counter h2{
+    @apply  text-xl font-extrabold  text-purple-900
+}
